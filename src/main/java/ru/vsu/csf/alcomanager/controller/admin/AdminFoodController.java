@@ -1,6 +1,5 @@
 package ru.vsu.csf.alcomanager.controller.admin;
 
-
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,7 +8,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.vsu.csf.alcomanager.config.WebSecurityConfig;
-import ru.vsu.csf.alcomanager.model.Alcohol;
 import ru.vsu.csf.alcomanager.model.Food;
 import ru.vsu.csf.alcomanager.model.User;
 import ru.vsu.csf.alcomanager.service.FoodService;

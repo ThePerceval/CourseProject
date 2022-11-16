@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import ru.vsu.csf.alcomanager.model.Party;
 import ru.vsu.csf.alcomanager.model.Role;
 import ru.vsu.csf.alcomanager.model.User;
-import ru.vsu.csf.alcomanager.repository.PartyRepository;
 import ru.vsu.csf.alcomanager.repository.UserRepository;
 
 import java.util.List;
@@ -20,7 +19,6 @@ import java.util.Set;
 @RequiredArgsConstructor
 public class UserService implements UserDetailsService {
     private final UserRepository userRepository;
-    private final PartyRepository partyRepository;
     private final AlcoholService alcoholService;
     private final FoodService foodService;
     private final PartyService partyService;

@@ -11,11 +11,8 @@ import ru.vsu.csf.alcomanager.service.PartyService;
 import ru.vsu.csf.alcomanager.service.UserService;
 
 import java.security.Principal;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 @Controller
 @RequestMapping("/user/party")
@@ -144,22 +141,4 @@ public class UserPartyController {
         model.addAttribute("isAdmin", WebSecurityConfig.isAdmin());
         return "redirect:/user/party";
     }
-
-//    @PostMapping("/join")
-//    public String inviteParty(@RequestParam String name,
-//                              @RequestParam String place,
-//                              @RequestParam String date,
-//                              Principal principal,
-//                              Model model) {
-//        System.out.println(name + "\n" + place + "\n" + date);
-//        if (principal != null) {
-//            User user = userService.getByLogin(principal.getName());
-//            model.addAttribute("user", user);
-//        }
-//        model.addAttribute("isUser", WebSecurityConfig.isUser());
-//        model.addAttribute("isAdmin", WebSecurityConfig.isAdmin());
-//
-////        alcoholService.addAlcohol(new Alcohol(name, Integer.parseInt(strength)));
-//        return "user/party";
-//    }
 }

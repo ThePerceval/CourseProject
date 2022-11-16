@@ -22,23 +22,23 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
                 .csrf()
-                .disable();
-//                .authorizeRequests()
-//                .antMatchers("/login/**", "/registration/**").not().fullyAuthenticated()
-//                .antMatchers("/user/**", "/home/**", "home/**").hasAnyRole("ADMIN", "USER")
-//                .antMatchers("/admin/**").hasRole("ADMIN")
-//                .antMatchers("/", "/css/**", "/blocks/**").permitAll()
-//                .anyRequest().authenticated()
-//                .and()
-//                .formLogin()
-//                .loginPage("/login")
-//                .defaultSuccessUrl("/home/about")
-//                .failureUrl("/login?error=true")
-//                .permitAll()
-//                .and()
-//                .logout()
-//                .permitAll()
-//                .logoutSuccessUrl("/");
+                .disable()
+                .authorizeRequests()
+                .antMatchers("/login/**", "/registration/**").not().fullyAuthenticated()
+                .antMatchers("/user/**", "/home/**", "home/**").hasAnyRole("ADMIN", "USER")
+                .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("/", "/css/**", "/blocks/**").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .defaultSuccessUrl("/home/about")
+                .failureUrl("/login?error=true")
+                .permitAll()
+                .and()
+                .logout()
+                .permitAll()
+                .logoutSuccessUrl("/");
     }
 
     @Bean

@@ -5,8 +5,6 @@ import org.springframework.stereotype.Service;
 import ru.vsu.csf.alcomanager.model.Role;
 import ru.vsu.csf.alcomanager.repository.RoleRepository;
 
-import java.util.List;
-
 @Service
 public class RoleService {
 
@@ -19,13 +17,5 @@ public class RoleService {
 
     public void add(Role value) {
         this.roleRepository.save(value);
-    }
-
-    public void remove(Role value) {
-        this.roleRepository.delete(value);
-    }
-
-    public List<Role> getAll() {
-        return this.roleRepository.findAll();
     }
 }

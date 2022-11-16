@@ -23,10 +23,6 @@ public class PartyService {
         partyRepository.save(party);
     }
 
-    public Set<Party> getPartiesForPerson(Long id) {
-        return userRepository.getReferenceById(id).getParties();
-    }
-
     public Party findById(Long id) {
         List<Party> list = partyRepository.findAll();
         for (Party party : list) {
