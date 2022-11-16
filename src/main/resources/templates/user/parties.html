@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:insert="blocks/header"></head>
+<body>
+    <header th:insert="blocks/nav"></header>
+    <section class="parties">
+        <div th:each="party :${parties}" class="party-one-block">
+            <div class="party">
+                <div class="party-param">
+                    <a th:text="${party.name}" th:href="@{/user/party/} + ${party.id}"></a>
+                </div>
+                <div class="party-param">
+                    <p th:text="${#temporals.format(party.date, 'dd-MM-yyyy HH:mm')}"></p>
+                </div>
+                <div class="party-param">
+                    <p th:text="${party.place}"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

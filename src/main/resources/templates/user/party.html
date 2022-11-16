@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:insert="blocks/header"></head>
+<body>
+    <header th:insert="blocks/nav"></header>
+    <section class="party-info">
+        <div class="party-info-child">
+            <h3>Пользователи</h3>
+            <div class="party-user-list" th:each="user: ${party.users}">
+                <div>
+                    <p th:text="${user.name} + ' ' + ${user.surname}"></p>
+                </div>
+            </div>
+        </div>
+        <div class="party-info-child">
+            <h3>Предпочтения по еде</h3>
+            <div class="party-food-list" th:each="food: ${party.foods}">
+                <div>
+                    <p th:text="${food.name}"></p>
+                </div>
+            </div>
+        </div>
+        <div class="party-info-child">
+            <h3>Данные вечеринки</h3>
+            <div class="settings-block">
+                <div class="party-settings">
+                    <p>Название: </p>
+                    <p th:text="${party.name}"></p>
+                </div>
+                <div class="party-settings">
+                    <p>Место: </p>
+                    <p th:text="${party.place}"></p>
+                </div>
+                <div class="party-settings">
+                    <p>Дата: </p>
+                    <p th:text="${#temporals.format(party.date, 'dd-MM-yyyy HH:mm')}"></p>
+                </div>
+                <div class="party-settings">
+                    <p>Идентификатор вечеринки: </p>
+                    <p th:text="${party.id}"></p>
+                </div>
+                <div class="party-settings">
+                    <p>Код доступа: </p>
+                    <p th:text="${party.password}"></p>
+                </div>
+            </div>
+        </div>
+        <div class="party-info-child">
+            <h3>Предпочтения по Алкголю</h3>
+            <div class="settings">
+                <div class="party-alcohol-list" th:each="alcohol: ${party.alcohols}">
+                    <div>
+                        <p th:text="${alcohol.name}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

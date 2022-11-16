@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:insert="blocks/header"></head>
+<body>
+    <header th:insert="blocks/nav"></header>
+    <form method="post" th:action="@{/admin/food}" class="login">
+        <label for="name">Название еды</label>
+        <input name="name" type="text" placeholder="OakHeart" id="name">
+        <button type="submit">Добавить</button>
+    </form>
+</body>
+</html>

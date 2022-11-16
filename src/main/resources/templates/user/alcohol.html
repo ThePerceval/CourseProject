@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:insert="blocks/header"></head>
+<body>
+    <header th:insert="blocks/nav"></header>
+    <section class="alcohols">
+        <div th:each="alcohol :${alcohols}" class="alcohol-one-block">
+            <div class="alcohol">
+                <form method="post">
+                    <label th:text="${alcohol.name}"></label>
+                    <div>
+                        <button th:formaction="@{/user/alcohol/like/} + ${alcohol.id}"
+                                th:disabled="${user.alcohols.contains(alcohol)}">
+                            like
+                        </button>
+                        <button th:formaction="@{/user/alcohol/dislike/} + ${alcohol.id}"
+                                th:disabled="!${user.alcohols.contains(alcohol)}">
+                            dislike
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

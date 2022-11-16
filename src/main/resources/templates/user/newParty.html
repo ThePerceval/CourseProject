@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:insert="blocks/header"></head>
+<body>
+    <header th:insert="blocks/nav"></header>
+    <form method="post" th:action="@{/user/party/create}" class="login">
+        <label for="name">Название</label>
+        <input name="name" type="text" placeholder="Туса-джуса" id="name" required>
+
+        <label for="place">Место проведения</label>
+        <input name="place" type="text" placeholder="Воронеж, Московский пр-т, 123" id="place" required>
+
+        <label for="date">Дата</label>
+        <input name="date" th:min="${currDate}" th:value="${currDate}" type="datetime-local" id="date" required>
+
+        <label for="password">Код доступа</label>
+        <input name="password" type="text" placeholder="Пароль" id="password" required>
+
+        <button type="submit">Создать</button>
+    </form>
+</body>
+</html>

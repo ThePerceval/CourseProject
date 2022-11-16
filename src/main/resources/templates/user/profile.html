@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:insert="blocks/header"></head>
+<body>
+    <header th:insert="blocks/nav"></header>
+    <section class="personal-info">
+        <div class="profile">
+            <div class="inline-flex">
+                <label>Логин: </label>
+                <p th:text="${user.username}"></p>
+            </div>
+            <div>
+                <label>Имя: </label>
+                <p th:text="${user.name}"></p>
+            </div>
+            <div>
+                <label>Фамилия: </label>
+                <p th:text="${user.surname}"></p>
+            </div>
+        </div>
+    </section>
+
+
+    <section th:if="${foodPref} != null and !${foodPref.isEmpty()}" class="food-preferences">
+        <div class="profile">
+            <div class="inline-flex">
+                <label>Логин: </label>
+                <p th:text="${user.username}"></p>
+            </div>
+            <div>
+                <label>Имя: </label>
+                <p th:text="${user.name}"></p>
+            </div>
+            <div>
+                <label>Фамилия: </label>
+                <p th:text="${user.surname}"></p>
+            </div>
+        </div>
+    </section>
+
+    <section th:if="${alcoPref} != null and !${alcoPref.isEmpty()}" class="alcohol-preferences">
+        <div class="profile">
+            <div class="inline-flex">
+                <label>Логин: </label>
+                <p th:text="${user.username}"></p>
+            </div>
+            <div>
+                <label>Имя: </label>
+                <p th:text="${user.name}"></p>
+            </div>
+            <div>
+                <label>Фамилия: </label>
+                <p th:text="${user.surname}"></p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

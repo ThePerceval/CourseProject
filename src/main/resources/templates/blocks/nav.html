@@ -1,0 +1,37 @@
+<nav class="main fixed-top">
+    <ul>
+        <li th:if="!${isUser} and !${isAdmin}">
+            <a th:href="@{/login}">Войти</a>
+        </li>
+        <li th:if="!${isUser} and !${isAdmin}">
+            <a th:href="@{/registration}">Зарегистрироваться</a>
+        </li>
+        <li th:if="${isUser} or ${isAdmin}">
+            <a th:href="@{/home/about}">Профиль</a>
+        </li>
+        <li th:if="${isAdmin}">
+            <a th:href="@{/admin/alcohol}">Добавить алкоголь</a>
+        </li>
+        <li th:if="${isAdmin}">
+            <a th:href="@{/admin/food}">Добавить еду</a>
+        </li>
+        <li th:if="${isUser} or ${isAdmin}">
+            <a th:href="@{/user/party/new}">Создать вечеринку</a>
+        </li>
+        <li th:if="${isUser} or ${isAdmin}">
+            <a th:href="@{/user/party/join}">Войти в вечеринку</a>
+        </li>
+        <li th:if="${isUser} or ${isAdmin}">
+            <a th:href="@{/user/party}">Вечеринки</a>
+        </li>
+        <li th:if="${isUser} or ${isAdmin}">
+            <a th:href="@{/user/alcohol}">Алкоголь</a>
+        </li>
+        <li th:if="${isUser} or ${isAdmin}">
+            <a th:href="@{/user/food}">Еда</a>
+        </li>
+        <li th:if="${isUser} or ${isAdmin}">
+            <a th:href="@{/logout}">Выйти</a>
+        </li>
+    </ul>
+</nav>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:insert="blocks/header"></head>
+<body>
+    <header th:insert="blocks/nav"></header>
+    <form method="post" th:action="@{/registration}" class="register">
+        <h3>Alco-manager</h3>
+        <label for="login">Логин</label>
+        <input name="login" type="text" placeholder="Login" id="login">
+        <label for="password">Пароль</label>
+        <input name="password" type="password" placeholder="Password" id="password">
+        <label for="name">Имя</label>
+        <input name="name" type="text" placeholder="Name" id="name">
+        <label for="surname">Фамилия</label>
+        <input name="surname" type="text" placeholder="Surname" id="surname">
+        <button id="regButton">Зарегистрироваться</button>
+    </form>
+</body>
+</html>
