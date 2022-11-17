@@ -139,6 +139,6 @@ public class UserPartyController {
         }
         model.addAttribute("isUser", WebSecurityConfig.isUser());
         model.addAttribute("isAdmin", WebSecurityConfig.isAdmin());
-        return "redirect:/user/party";
+        return "redirect:/user/party/" + id;
     }
 }

@@ -7,7 +7,7 @@
         <label for="name">ID вечеринки</label>
         <input name="id" type="text" placeholder="ID вечеринки" id="name">
         <label for="place">Код доступа</label>
-        <input name="text" type="text" placeholder="Код" id="place">
+        <input name="password" type="text" placeholder="Код" id="place">
         <button type="submit">Войти</button>
         <p th:if="${error} != null" th:text="${error}"></p>
     </form>
