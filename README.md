@@ -12,3 +12,4 @@
 * [Видео функционала неавторизованного пользователя](https://youtu.be/w3Tr8JNcN7E)  
 * [Видео функционала обычного пользователя](https://youtu.be/7VBgzXAfIW8)
 * [Видео функционала администратора](https://youtu.be/b9XfnO4ESTk)
+* [Техническое задание](https://github.com/ThePerceval/CourseProject/blob/master/Documentation/ТЗ.pdf)
