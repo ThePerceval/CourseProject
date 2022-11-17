@@ -13,3 +13,4 @@
 * [Видео функционала обычного пользователя](https://youtu.be/7VBgzXAfIW8)
 * [Видео функционала администратора](https://youtu.be/b9XfnO4ESTk)
 * [Техническое задание](https://github.com/ThePerceval/CourseProject/blob/master/Documentation/ТЗ.pdf)
+* [Heroku](https://alcomanager.herokuapp.com) **К сожалению, приложение почему-то запускается через раз и может быть недоступно**
