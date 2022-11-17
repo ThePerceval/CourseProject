@@ -17,4 +17,5 @@
 * [Курсовая работа](https://github.com/ThePerceval/CourseProject/blob/master/Documentation/Курсовой%20проект.pdf)
 * [Техническое задание](https://github.com/ThePerceval/CourseProject/blob/master/Documentation/ТЗ.pdf)
 * [Heroku](https://alcomanager.herokuapp.com) **К сожалению, приложение почему-то запускается через раз и может быть недоступно**
+* [Метрики](https://metrika.yandex.ru/dashboard?group=day&period=month&id=91248958)
 * [Схема БД](https://github.com/ThePerceval/CourseProject/blob/master/Documentation/dbschema.png)
