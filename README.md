@@ -19,7 +19,7 @@
 * [Курсовая работа](https://github.com/ThePerceval/CourseProject/blob/master/Documentation/Курсовой%20проект.pdf)
 * [Презентация](https://github.com/ThePerceval/CourseProject/blob/master/Documentation/Presentation.pdf)
 * [Метрики](https://metrika.yandex.ru/dashboard?group=day&period=month&id=91248958)
-* [Схема БД](https://github.com/ThePerceval/CourseProject/blob/master/Documentation/dbschema.png)
+* [Схема БД](https://github.com/ThePerceval/CourseProject/blob/master/Documentation/DB.png)
 * [Swagger](https://github.com/ThePerceval/CourseProject/blob/master/Documentation/SwaggerUI.pdf)
 * 
 * [Heroku](https://alcomanager.herokuapp.com)
