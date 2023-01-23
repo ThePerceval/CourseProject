@@ -1,1 +1,1 @@
-const BACK_URL = "http://localhost:8888/";
+const BACK_URL = "https://alcomanager.herokuapp.com:8888k/";
