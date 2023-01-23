@@ -1,9 +1,12 @@
 package ru.vsu.csf.alcomanager.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
+import org.springframework.data.annotation.Reference;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -48,14 +51,6 @@ public class User implements UserDetails {
     @JoinColumn(name = "role", referencedColumnName = "id")
     private Role role;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        User user = (User) o;
-        return id != null && Objects.equals(id, user.id);
-    }
-
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
     @JoinTable(name = "person_parties",
             joinColumns = @JoinColumn(name = "person_id"),
@@ -73,7 +68,6 @@ public class User implements UserDetails {
             joinColumns = @JoinColumn(name = "person_id"),
             inverseJoinColumns = @JoinColumn(name = "alcohols_id"))
     private Set<Alcohol> alcohols = new LinkedHashSet<>();
-
 
     @Override
     public int hashCode() {
@@ -93,6 +87,14 @@ public class User implements UserDetails {
                 ", foods=" + foods +
                 ", alcohols=" + alcohols +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        User user = (User) o;
+        return id != null && Objects.equals(id, user.id);
     }
 
     @Override

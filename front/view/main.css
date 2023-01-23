@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap');
 
 *,
 *:before,
@@ -26,14 +27,23 @@ body > header {
     justify-content: center;
 }
 
-.profile > div {
+.user-food, .user-alcohol {
+    margin: 32px;
+}
+
+.profile > div, .user-alcohol > div, .user-food > div {
     display: inline-flex;
     justify-content: space-between;
     text-align: center;
     font-size: 30px;
     color: #ecf0f1;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
     font-weight: 100;
+    gap: 48px;
+}
+
+.user-food > div > div, .user-alcohol > div > div {
+    text-align: left;
 }
 
 header {
@@ -158,7 +168,7 @@ nav a:focus {
 
 
 @import url(https://fonts.googleapis.com/css?family=Exo|Roboto);
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,100);
+@import url(https://fonts.googleapis.com/css?family=YanoneKaffeesatz:400,100);
 
 
 .main {
@@ -177,7 +187,7 @@ nav a:focus {
     text-decoration: none;
     list-style-type: none;
     color: #bdc3c7;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
     margin: 5px 5px 0px;
     padding-bottom: 5px;
     transition-duration: 0.3s;
@@ -191,7 +201,7 @@ nav a:focus {
 }
 
 .main h2 {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
     font-weight: 300;
     font-size: 30px;
     float: left;
@@ -212,7 +222,7 @@ nav a:focus {
     text-align: center;
     font-size: 75px;
     color: #ecf0f1;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
     font-weight: 100;
     margin-top: -10px;
 }
@@ -229,8 +239,8 @@ nav a:focus {
 
 .change-bio label,
 .change-pass label,
-.create-party-form label {
-    font-family: 'Raleway', sans-serif;
+.new-party-form label {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
     display: block;
     margin-top: 30px;
     font-size: 26px;
@@ -240,7 +250,7 @@ nav a:focus {
 
 .change-bio input,
 .change-pass input,
-.create-party-form input {
+.new-party-form input {
     display: block;
     height: 50px;
     width: 100%;
@@ -265,7 +275,7 @@ nav a:focus {
     text-align: center;
     font-size: 30px;
     color: #ecf0f1;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
     font-weight: 100;
 }
 
@@ -281,7 +291,7 @@ nav a:focus {
 
 .list label {
     color: #ecf0f1;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
     font-weight: 100;
     font-size: 20px;
 }
@@ -310,11 +320,11 @@ nav a:focus {
     opacity: 0;
 }
 
-.create-party {
+.new-party {
     margin: 40px;
 }
 
-.create-party-form {
+.new-party-form {
     display: block;
     width: 500px;
     align-content: center;
@@ -363,7 +373,7 @@ section.parties {
     text-decoration: none;
     list-style-type: none;
     color: #bdc3c7;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
     transition-duration: 0.3s;
     cursor: pointer;
 
@@ -378,7 +388,7 @@ section.parties {
 .alcohol-one-block > .alcohol > form,
 .party-one-block > .party {
     color: #bdc3c7;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
     display: flex;
     justify-content: space-between;
 }
@@ -396,7 +406,7 @@ section.parties {
     grid-template-rows: repeat(2, 350px);
     grid-template-columns: repeat(2, 1fr);
     color: #bdc3c7;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
     font-size: 22px;
 }
 
@@ -434,7 +444,7 @@ section.parties {
     text-align: center;
     font-size: 30px;
     color: #ecf0f1;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
     font-weight: 100;
 }
 
@@ -458,8 +468,8 @@ section.parties {
     cursor: pointer;
 }
 
-.food-one-block > .food > form > div > button:disabled,
-.alcohol-one-block > .alcohol > form > div > button:disabled {
+.food-one-block > .food > form > div > button.disabled,
+.alcohol-one-block > .alcohol > form > div > button.disabled {
     background-color: #5e5e5e;
     color: #080710;
     padding: 6px;
@@ -467,7 +477,6 @@ section.parties {
     font-weight: 600;
     border-radius: 5px;
     border-width: 1px;
-    cursor: default;
 }
 
 /* создание в label псевдоэлемента before со следующими стилями */
@@ -517,4 +526,19 @@ section.parties {
 /* стили для чекбокса, находящегося в состоянии disabled */
 .custom-checkbox:disabled + label::before {
     background-color: #e9ecef;
+}
+
+.validation-message {
+    position: absolute;
+    opacity: 0;
+    margin-top: 8px;
+    text-align: center;
+    color: #ff3333;
+    transform: translateX(-50%);
+    left: 50%;
+    width: 100%;
+}
+
+.validation-wrapper {
+    position: relative;
 }

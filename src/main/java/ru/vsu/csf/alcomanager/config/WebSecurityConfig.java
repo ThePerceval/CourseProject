@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
 import ru.vsu.csf.alcomanager.service.UserService;
 
 @Configuration
@@ -18,27 +19,33 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     UserService userService;
 
+//    @Bean
+//    protected SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
+//        httpSecurity
+//                .csrf()
+//                .disable()
+//                .authorizeRequests()
+//                .antMatchers("/login/**", "/registration/**", "/tmp/**", "/tmp11/**").not().fullyAuthenticated()
+//                .antMatchers("/user/**", "/home/**", "home/**").hasAnyRole("ADMIN", "USER")
+//                .antMatchers("/admin/**").hasRole("ADMIN")
+//                .antMatchers("/", "/css/**","/js/**", "/blocks/**", "/tmp/**", "/tmp11/**").permitAll()
+//                .anyRequest().authenticated()
+//                .and()
+//                .formLogin()
+//                .loginPage("/login")
+//                .defaultSuccessUrl("/home/about")
+//                .failureUrl("/login?error=true")
+//                .permitAll()
+//                .and()
+//                .logout()
+//                .permitAll()
+//                .logoutSuccessUrl("/");
+//        return httpSecurity.build();
+//    }
+
     @Override
-    protected void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity
-                .csrf()
-                .disable()
-                .authorizeRequests()
-                .antMatchers("/login/**", "/registration/**").not().fullyAuthenticated()
-                .antMatchers("/user/**", "/home/**", "home/**").hasAnyRole("ADMIN", "USER")
-                .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/", "/css/**", "/blocks/**").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .defaultSuccessUrl("/home/about")
-                .failureUrl("/login?error=true")
-                .permitAll()
-                .and()
-                .logout()
-                .permitAll()
-                .logoutSuccessUrl("/");
+    protected void configure(HttpSecurity http) throws Exception {
+        http.cors().and().csrf().disable();
     }
 
     @Bean

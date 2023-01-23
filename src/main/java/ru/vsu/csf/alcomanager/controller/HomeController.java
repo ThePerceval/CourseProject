@@ -15,17 +15,17 @@ import java.security.Principal;
 @RequestMapping("/home")
 @AllArgsConstructor
 public class HomeController {
-    private final UserService userService;
-
-    @GetMapping("/about")
-    public String getPage(Principal principal, Model model) {
-        if (principal != null) {
-            User currUser = userService.getByLogin(principal.getName());
-            model.addAttribute("user", currUser);
-//            System.out.println(currUser);
-        }
-        model.addAttribute("isUser", WebSecurityConfig.isUser());
-        model.addAttribute("isAdmin", WebSecurityConfig.isAdmin());
-        return "user/profile";
-    }
+//    private final UserService userService;
+//
+//    @GetMapping("/about")
+//    public String getPage(Principal principal, Model model) {
+//        if (principal != null) {
+//            User currUser = userService.getByLogin(principal.getName());
+//            model.addAttribute("user", currUser);
+////            System.out.println(currUser);
+//        }
+//        model.addAttribute("isUser", WebSecurityConfig.isUser());
+//        model.addAttribute("isAdmin", WebSecurityConfig.isAdmin());
+//        return "user/profile";
+//    }
 }

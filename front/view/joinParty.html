@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход на вечеринку</title>
+    <link href="main.css" rel="stylesheet">
+    <script type="module" src="../script/config.js"></script>
+</head>
+<body>
+    <script src="./nav.js"></script>
+    <form method="post" class="login" id="join-party-form">
+        <label for="party-id">ID вечеринки</label>
+        <input name="id" type="text" placeholder="ID вечеринки" id="party-id">
+        <label for="party-place">Код доступа</label>
+        <input name="password" type="text" placeholder="Код" id="party-place">
+        <button id="join-party-button">Войти</button>
+        <div class="validation-wrapper">
+            <p id="join-party-validation-error" class="validation-message">Заполните пустые поля</p>
+            <p id="join-party-auth-error" class="validation-message">Не верный id или пароль вечеринки</p>
+            <p id="join-party-not-found-error" class="validation-message">Вечеринка с таким id не найдена</p>
+            <p id="join-party-already-error" class="validation-message">Вы уже учавствуете в данной вечеринке</p>
+        </div>
+    </form>
+    <script type="module" src="../script/joinParty.js"></script>
+</body>
+</html>
+

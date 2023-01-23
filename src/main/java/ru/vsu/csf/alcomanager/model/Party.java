@@ -1,5 +1,8 @@
 package ru.vsu.csf.alcomanager.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -43,6 +46,7 @@ public class Party {
     private LocalDateTime date;
 
     @ManyToMany(mappedBy = "parties")
+    @JsonIgnore
     private Set<User> users = new LinkedHashSet<>();
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})

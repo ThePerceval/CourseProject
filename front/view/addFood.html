@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить еду</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <script src="./nav.js"></script>
+    <form method="post" id="add-food-form"  class="login">
+        <label for="add-food-input">Название еды</label>
+        <input name="name" type="text" placeholder="Название" id="add-food-input">
+        <button id="add-food-button">Добавить</button>
+        <div class="validation-wrapper">
+            <p id="add-food-error" class="validation-message">Данная еда уже существует</p>
+            <p id="add-food-validation-error" class="validation-message">Заполните пустые поля</p>
+        </div>
+    </form>
+    <script type="module" src="../script/addFood.js"></script>
+</body>
+</html>

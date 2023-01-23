@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новая вечеринка</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <script src="./nav.js"></script>
+    <form method="post" class="login" id="new-party-form">
+        <label for="party-name">Название</label>
+        <input name="name" type="text" placeholder="Название" id="party-name" required>
+        <label for="party-place">Место проведения</label>
+        <input name="place" type="text" placeholder="Место проведения" id="party-place" required>
+        <label for="party-date">Дата</label>
+        <input name="date" type="datetime-local" id="party-date" required>
+        <label for="party-password">Пароль</label>
+        <input name="password" type="text" placeholder="Пароль" id="party-password" required>
+        <button type="submit" id="new-party-button">Создать</button>
+        <div class="validation-wrapper">
+            <p id="new-party-error" class="validation-message">Вечеринка с таким именем уже существует</p>
+            <p id="new-party-validation-error" class="validation-message">Заполните пустые поля</p>
+        </div>
+    </form>
+    <script type="module" src="../script/newParty.js"></script>
+</body>
+</html>

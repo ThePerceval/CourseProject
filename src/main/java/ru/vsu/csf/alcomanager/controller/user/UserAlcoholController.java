@@ -15,52 +15,52 @@ import ru.vsu.csf.alcomanager.service.UserService;
 
 import java.security.Principal;
 import java.util.List;
-
-@Controller
-@RequestMapping("/user/alcohol")
-@AllArgsConstructor
+//
+//@Controller
+//@RequestMapping("/user/alcohol")
+//@AllArgsConstructor
 public class UserAlcoholController {
-    private final UserService userService;
-    private final AlcoholService alcoholService;
-
-    @GetMapping()
-    public String getPage(Principal principal, Model model) {
-        if (principal != null) {
-            User currUser = userService.getByLogin(principal.getName());
-            model.addAttribute("user", currUser);
-        }
-        List<Alcohol> alcoholList =alcoholService.findAll();
-        model.addAttribute("alcohols", alcoholList);
-        model.addAttribute("isUser", WebSecurityConfig.isUser());
-        model.addAttribute("isAdmin", WebSecurityConfig.isAdmin());
-        return "user/alcohol";
-    }
-
-    @PostMapping("/like/{id}")
-    public String likeAlcohol(@PathVariable("id") Long id,
-                           Principal principal,
-                           Model model){
-        if (principal != null) {
-            User currUser = userService.getByLogin(principal.getName());
-            model.addAttribute("user", currUser);
-            userService.likeAlco(currUser.getId(), id);
-        }
-        model.addAttribute("isUser", WebSecurityConfig.isUser());
-        model.addAttribute("isAdmin", WebSecurityConfig.isAdmin());
-        return "redirect:/user/alcohol";
-    }
-
-    @PostMapping("/dislike/{id}")
-    public String dislikeAlcohol(@PathVariable("id") Long id,
-                              Principal principal,
-                              Model model){
-        if (principal != null) {
-            User currUser = userService.getByLogin(principal.getName());
-            model.addAttribute("user", currUser);
-            userService.disLikeAlco(currUser.getId(), id);
-        }
-        model.addAttribute("isUser", WebSecurityConfig.isUser());
-        model.addAttribute("isAdmin", WebSecurityConfig.isAdmin());
-        return "redirect:/user/alcohol";
-    }
+//    private final UserService userService;
+//    private final AlcoholService alcoholService;
+//
+//    @GetMapping()
+//    public String getPage(Principal principal, Model model) {
+//        if (principal != null) {
+//            User currUser = userService.getByLogin(principal.getName());
+//            model.addAttribute("user", currUser);
+//        }
+//        List<Alcohol> alcoholList =alcoholService.findAll();
+//        model.addAttribute("alcohols", alcoholList);
+//        model.addAttribute("isUser", WebSecurityConfig.isUser());
+//        model.addAttribute("isAdmin", WebSecurityConfig.isAdmin());
+//        return "user/alcohol";
+//    }
+//
+//    @PostMapping("/like/{id}")
+//    public String likeAlcohol(@PathVariable("id") Long id,
+//                           Principal principal,
+//                           Model model){
+//        if (principal != null) {
+//            User currUser = userService.getByLogin(principal.getName());
+//            model.addAttribute("user", currUser);
+//            userService.likeAlco(currUser.getId(), id);
+//        }
+//        model.addAttribute("isUser", WebSecurityConfig.isUser());
+//        model.addAttribute("isAdmin", WebSecurityConfig.isAdmin());
+//        return "redirect:/user/alcohol";
+//    }
+//
+//    @PostMapping("/dislike/{id}")
+//    public String dislikeAlcohol(@PathVariable("id") Long id,
+//                              Principal principal,
+//                              Model model){
+//        if (principal != null) {
+//            User currUser = userService.getByLogin(principal.getName());
+//            model.addAttribute("user", currUser);
+//            userService.disLikeAlco(currUser.getId(), id);
+//        }
+//        model.addAttribute("isUser", WebSecurityConfig.isUser());
+//        model.addAttribute("isAdmin", WebSecurityConfig.isAdmin());
+//        return "redirect:/user/alcohol";
+//    }
 }

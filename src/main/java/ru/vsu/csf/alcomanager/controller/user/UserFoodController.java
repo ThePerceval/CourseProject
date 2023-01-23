@@ -20,47 +20,47 @@ import java.util.List;
 @RequestMapping("/user/food")
 @AllArgsConstructor
 public class UserFoodController {
-    private final UserService userService;
-    private final FoodService foodService;
-
-    @GetMapping()
-    public String getPage(Principal principal, Model model) {
-        if (principal != null) {
-            User currUser = userService.getByLogin(principal.getName());
-            model.addAttribute("user", currUser);
-        }
-        List<Food> foodList = foodService.findAll();
-        model.addAttribute("foods", foodList);
-        model.addAttribute("isUser", WebSecurityConfig.isUser());
-        model.addAttribute("isAdmin", WebSecurityConfig.isAdmin());
-        return "user/food";
-    }
-
-    @PostMapping("/like/{id}")
-    public String likeFood(@PathVariable("id") Long id,
-                           Principal principal,
-                           Model model){
-        if (principal != null) {
-            User currUser = userService.getByLogin(principal.getName());
-            model.addAttribute("user", currUser);
-            userService.likeFood(currUser.getId(), id);
-        }
-        model.addAttribute("isUser", WebSecurityConfig.isUser());
-        model.addAttribute("isAdmin", WebSecurityConfig.isAdmin());
-        return "redirect:/user/food";
-    }
-
-    @PostMapping("/dislike/{id}")
-    public String dislikeFood(@PathVariable("id") Long id,
-                           Principal principal,
-                           Model model){
-        if (principal != null) {
-            User currUser = userService.getByLogin(principal.getName());
-            model.addAttribute("user", currUser);
-            userService.disLikeFood(currUser.getId(), id);
-        }
-        model.addAttribute("isUser", WebSecurityConfig.isUser());
-        model.addAttribute("isAdmin", WebSecurityConfig.isAdmin());
-        return "redirect:/user/food";
-    }
+//    private final UserService userService;
+//    private final FoodService foodService;
+//
+//    @GetMapping()
+//    public String getPage(Principal principal, Model model) {
+//        if (principal != null) {
+//            User currUser = userService.getByLogin(principal.getName());
+//            model.addAttribute("user", currUser);
+//        }
+//        List<Food> foodList = foodService.findAll();
+//        model.addAttribute("foods", foodList);
+//        model.addAttribute("isUser", WebSecurityConfig.isUser());
+//        model.addAttribute("isAdmin", WebSecurityConfig.isAdmin());
+//        return "user/food";
+//    }
+//
+//    @PostMapping("/like/{id}")
+//    public String likeFood(@PathVariable("id") Long id,
+//                           Principal principal,
+//                           Model model){
+//        if (principal != null) {
+//            User currUser = userService.getByLogin(principal.getName());
+//            model.addAttribute("user", currUser);
+//            userService.likeFood(currUser.getId(), id);
+//        }
+//        model.addAttribute("isUser", WebSecurityConfig.isUser());
+//        model.addAttribute("isAdmin", WebSecurityConfig.isAdmin());
+//        return "redirect:/user/food";
+//    }
+//
+//    @PostMapping("/dislike/{id}")
+//    public String dislikeFood(@PathVariable("id") Long id,
+//                           Principal principal,
+//                           Model model){
+//        if (principal != null) {
+//            User currUser = userService.getByLogin(principal.getName());
+//            model.addAttribute("user", currUser);
+//            userService.disLikeFood(currUser.getId(), id);
+//        }
+//        model.addAttribute("isUser", WebSecurityConfig.isUser());
+//        model.addAttribute("isAdmin", WebSecurityConfig.isAdmin());
+//        return "redirect:/user/food";
+//    }
 }

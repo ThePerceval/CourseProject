@@ -9,29 +9,134 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import ru.vsu.csf.alcomanager.model.Party;
 import ru.vsu.csf.alcomanager.model.Role;
+import ru.vsu.csf.alcomanager.model.SignInForm;
 import ru.vsu.csf.alcomanager.model.User;
+import ru.vsu.csf.alcomanager.repository.RoleRepository;
 import ru.vsu.csf.alcomanager.repository.UserRepository;
 
 import java.util.List;
 import java.util.Set;
+//
+//@Service
+//@RequiredArgsConstructor
+//public class UserService implements UserDetailsService {
+//    private final UserRepository userRepository;
+//    private final AlcoholService alcoholService;
+//    private final FoodService foodService;
+//    private final PartyService partyService;
+//    @Autowired
+//    BCryptPasswordEncoder bCryptPasswordEncoder;
+//
+////  CREATE
+//    public boolean addUser(User user) {
+//        if (getByLogin(user.getUsername()) != null) {
+//            return false;
+//        }
+//        user.setRole(new Role(1L, "ROLE_USER"));
+//        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+//        userRepository.save(user);
+//        return true;
+//    }
+//
+////  READ
+//
+//    public User getByLogin(String login) {
+//        List<User> list = userRepository.findAll();
+//        for (User u : list) {
+//            if (u.getUsername().equals(login)) {
+//                return u;
+//            }
+//        }
+//        return null;
+//    }
+//
+//    @Override
+//    public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
+//        User user = getByLogin(login);
+//        if (user == null) {
+//            throw new UsernameNotFoundException("User not found");
+//        }
+//        return user;
+//    }
+//
+//    public Party getPartyById(Long userId, Long id) {
+//        User user = userRepository.getReferenceById(userId);
+//        Set<Party> partySet = user.getParties();
+//        for (Party party : partySet){
+//            if(party.getId().equals(id)){
+//                return party;
+//            }
+//        }
+//        return null;
+//    }
+//
+////  UPDATE
+//
+//    public void likeAlco(Long idPerson, Long idAlco) {
+//        User p = userRepository.getReferenceById(idPerson);
+//        p.getAlcohols().add(alcoholService.findByID(idAlco));
+//        partyService.addAlcohol(idPerson, idAlco);
+//
+//        userRepository.save(p);
+//    }
+//
+//    public void disLikeAlco(Long idPerson, Long idAlco) {
+//        User p = userRepository.getReferenceById(idPerson);
+//        p.getAlcohols().remove(alcoholService.findByID(idAlco));
+//        partyService.deleteAlcohol(idPerson, idAlco);
+//        userRepository.save(p);
+//    }
+//
+//    public void likeFood(Long idPerson, Long idFood) {
+//        User p = userRepository.getReferenceById(idPerson);
+//        p.getFoods().add(foodService.findByID(idFood));
+//        partyService.addFoods(idPerson, idFood);
+//        userRepository.save(p);
+//    }
+//
+//    public void disLikeFood(Long idPerson, Long idFood) {
+//        User p = userRepository.getReferenceById(idPerson);
+//        p.getFoods().remove(foodService.findByID(idFood));
+//        partyService.deleteFoods(idPerson, idFood);
+//        userRepository.save(p);
+//    }
+//    public void joinParty(Long idPerson, Long idParty) {
+//        User user = userRepository.getReferenceById(idPerson);
+//        Party party = partyService.findById(idParty);
+//        user.getParties().add(party);
+//        partyService.addAllFoods(idPerson, idParty);
+//        partyService.addAllAlcohols(idPerson, idParty);
+//        userRepository.save(user);
+//    }
+//}
+
 
 @Service
 @RequiredArgsConstructor
 public class UserService implements UserDetailsService {
+    @Autowired
     private final UserRepository userRepository;
     private final AlcoholService alcoholService;
     private final FoodService foodService;
     private final PartyService partyService;
     @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final RoleRepository roleRepository;
 
 //  CREATE
 
     public boolean addUser(User user) {
-        if (getByLogin(user.getUsername()) != null) {
+        if (getByUsername(user.getUsername()) != null) {
             return false;
         }
-        user.setRole(new Role(1L, "ROLE_USER"));
+        Role roleUser = roleRepository.findByName("ROLE_USER");
+        if (roleUser == null) {
+            Role newRole = new Role(0L, "ROLE_USER");
+            roleRepository.save(newRole);
+            user.setRole(newRole);
+        } else {
+            user.setRole(roleUser);
+        }
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userRepository.save(user);
         return true;
@@ -39,7 +144,17 @@ public class UserService implements UserDetailsService {
 
 //  READ
 
-    public User getByLogin(String login) {
+    public User find(Long id) {
+        List<User> list = userRepository.findAll();
+        for (User u : list) {
+            if (u.getId().equals(id)) {
+                return u;
+            }
+        }
+        return null;
+    }
+
+    public User getByUsername(String login) {
         List<User> list = userRepository.findAll();
         for (User u : list) {
             if (u.getUsername().equals(login)) {
@@ -49,9 +164,17 @@ public class UserService implements UserDetailsService {
         return null;
     }
 
+    public Boolean authorize(SignInForm signInForm) {
+        User user = getByUsername(signInForm.getUsername());
+        if (user == null)
+            return false;
+        System.out.println(bCryptPasswordEncoder.matches(signInForm.getPassword(), user.getPassword()));
+        return bCryptPasswordEncoder.matches(signInForm.getPassword(), user.getPassword());
+    }
+
     @Override
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
-        User user = getByLogin(login);
+        User user = getByUsername(login);
         if (user == null) {
             throw new UsernameNotFoundException("User not found");
         }
@@ -61,8 +184,8 @@ public class UserService implements UserDetailsService {
     public Party getPartyById(Long userId, Long id) {
         User user = userRepository.getReferenceById(userId);
         Set<Party> partySet = user.getParties();
-        for (Party party : partySet){
-            if(party.getId().equals(id)){
+        for (Party party : partySet) {
+            if (party.getId().equals(id)) {
                 return party;
             }
         }
@@ -99,12 +222,18 @@ public class UserService implements UserDetailsService {
         partyService.deleteFoods(idPerson, idFood);
         userRepository.save(p);
     }
-    public void joinParty(Long idPerson, Long idParty) {
+
+    public Boolean joinParty(Long idPerson, Long idParty) {
         User user = userRepository.getReferenceById(idPerson);
         Party party = partyService.findById(idParty);
-        user.getParties().add(party);
-        partyService.addAllFoods(idPerson, idParty);
-        partyService.addAllAlcohols(idPerson, idParty);
-        userRepository.save(user);
+        boolean isAlreadyInParty = getPartyById(idPerson, idParty) != null;
+        if (party != null && !isAlreadyInParty) {
+            user.getParties().add(party);
+            partyService.addAllFoods(idPerson, idParty);
+            partyService.addAllAlcohols(idPerson, idParty);
+            userRepository.save(user);
+            return true;
+        }
+        return false;
     }
 }
