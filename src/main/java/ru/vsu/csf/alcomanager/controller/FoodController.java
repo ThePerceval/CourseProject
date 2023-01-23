@@ -11,14 +11,14 @@ import ru.vsu.csf.alcomanager.service.UserService;
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("/food")
 @AllArgsConstructor
 public class FoodController {
     private final FoodService foodService;
     private final UserService userService;
 
     @CrossOrigin
-    @GetMapping("/food")
+    @GetMapping()
     @ResponseBody
     public ResponseEntity getAllFood() {
         List<Food> food = foodService.findAll();
@@ -29,7 +29,7 @@ public class FoodController {
     }
 
     @CrossOrigin
-    @PostMapping("/food/like")
+    @PostMapping("/like")
     public ResponseEntity likeFood(@RequestParam long userId,
                                    @RequestParam long foodId) {
         userService.likeFood(userId, foodId);
@@ -37,7 +37,7 @@ public class FoodController {
     }
 
     @CrossOrigin
-    @PostMapping("/food/dislike")
+    @PostMapping("/dislike")
     public ResponseEntity dislikeFood(@RequestParam long userId,
                                       @RequestParam long foodId) {
         userService.disLikeFood(userId, foodId);

@@ -1,9 +1,11 @@
 package ru.vsu.csf.alcomanager.controller;
 
 import lombok.AllArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ru.vsu.csf.alcomanager.mapper.PartyMapper;
 import ru.vsu.csf.alcomanager.model.Party;
 import ru.vsu.csf.alcomanager.dto.PartyDTO;
 import ru.vsu.csf.alcomanager.model.User;
@@ -12,10 +14,12 @@ import ru.vsu.csf.alcomanager.service.UserService;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @AllArgsConstructor
 public class PartyController {
+    private final PartyMapper partyMapper;
     private final PartyService partyService;
     private final UserService userService;
 
@@ -25,17 +29,22 @@ public class PartyController {
     public ResponseEntity getAllParties(@RequestParam Long id) {
         User user = userService.find(id);
         List<PartyDTO> parties = new ArrayList<>();
-        for (Party party: user.getParties()){
-            parties.add(new PartyDTO(party.getId(), party.getName(), party.getPlace(), party.getDate()));
-        }
-        return new ResponseEntity(parties,  HttpStatus.OK);
+
+        parties = user.getParties().stream().map(partyMapper::convertToDto).collect(Collectors.toList());
+
+//        modelMapper.map(parties, PartyDTO.class);
+//        for (Party party : user.getParties()) {
+//            parties.add(modelMapper.map(party, PartyDTO.class));
+//        }
+        return new ResponseEntity(parties, HttpStatus.OK);
     }
 
     @CrossOrigin
     @ResponseBody
     @GetMapping("/party")
     public ResponseEntity getParty(@RequestParam long id) {
-        return new ResponseEntity(partyService.findById(id), HttpStatus.OK);
+        PartyDTO party = partyMapper.convertToDto(partyService.findById(id));
+        return new ResponseEntity(party, HttpStatus.OK);
     }
 
     @CrossOrigin

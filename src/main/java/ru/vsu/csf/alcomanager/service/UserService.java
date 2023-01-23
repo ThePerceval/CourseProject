@@ -9,7 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import ru.vsu.csf.alcomanager.model.Party;
 import ru.vsu.csf.alcomanager.model.Role;
-import ru.vsu.csf.alcomanager.model.SignInForm;
+import ru.vsu.csf.alcomanager.dto.SignInDTO;
 import ru.vsu.csf.alcomanager.model.User;
 import ru.vsu.csf.alcomanager.repository.RoleRepository;
 import ru.vsu.csf.alcomanager.repository.UserRepository;
@@ -164,7 +164,7 @@ public class UserService implements UserDetailsService {
         return null;
     }
 
-    public Boolean authorize(SignInForm signInForm) {
+    public Boolean authorize(SignInDTO signInForm) {
         User user = getByUsername(signInForm.getUsername());
         if (user == null)
             return false;
