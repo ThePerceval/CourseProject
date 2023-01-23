@@ -20,4 +20,6 @@
 * [Презентация](https://github.com/ThePerceval/CourseProject/blob/master/Documentation/Presentation.pdf)
 * [Метрики](https://metrika.yandex.ru/dashboard?group=day&period=month&id=91248958)
 * [Схема БД](https://github.com/ThePerceval/CourseProject/blob/master/Documentation/dbschema.png)
-* [Heroku](https://alcomanager.herokuapp.com) **К сожалению, приложение почему-то запускается через раз и может быть недоступно**
+* [Swagger](https://github.com/ThePerceval/CourseProject/blob/master/Documentation/SwaggerUI.pdf)
+* 
+* [Heroku](https://alcomanager.herokuapp.com)
