@@ -27,7 +27,7 @@ signInButton.onclick = async (e) => {
         console.log(user)
         sessionStorage.setItem("userFood", JSON.stringify(user.foods))
         sessionStorage.setItem("userAlcohol", JSON.stringify(user.alcohols))
-        location.assign('./profile.html');
+        location.assign('profile.html');
     } else if(response.status === 401){
         signInError.style.opacity = 1;
         signInValidationError.style.opacity = 0;

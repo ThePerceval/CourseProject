@@ -1,1 +1,0 @@
-const BACK_URL = "https://alcomanager.herokuapp.com:8888/";

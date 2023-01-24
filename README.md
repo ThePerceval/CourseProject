@@ -21,4 +21,4 @@
 * [Метрики](https://metrika.yandex.ru/dashboard?group=day&period=month&id=91248958)
 * [Схема БД](https://github.com/ThePerceval/CourseProject/blob/master/Documentation/DB.png)
 * [Swagger](https://github.com/ThePerceval/CourseProject/blob/master/Documentation/SwaggerUI.pdf)
-* [Heroku](https://alcomanager.herokuapp.com)
+* [Приложение](http://62.33.185.12:8080)

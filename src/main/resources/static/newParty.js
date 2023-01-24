@@ -23,7 +23,7 @@ newPartyButton.onclick = async (e) => {
         },
     });
     if(response.status === 200) {
-        location.assign('./parties.html');
+        location.assign('parties.html');
     } else if(response.status === 409){
         newPartyError.style.opacity = 1;
         newPartyValidationError.style.opacity = 0;

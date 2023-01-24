@@ -47,6 +47,6 @@ const partyPassword = document.querySelector('#party-password');
         partyId.innerHTML = party.id;
         partyPassword.innerHTML = party.password;
     } else if(response.status === 400) {
-        location.assign('./parties.html');
+        location.assign('parties.html');
     }
 })()

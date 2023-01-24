@@ -28,7 +28,7 @@ joinPartyButton.onclick = async (e) => {
     })
     if(response.status === 200) {
         const party = await response.json();
-        location.assign(`./party.html?id=${party.id}`);
+        location.assign(`party.html`);
     } else if(response.status === 401){
         joinPartyAuthError.style.opacity = 1;
         joinPartyNotFoundError.style.opacity = 0;

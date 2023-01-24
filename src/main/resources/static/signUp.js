@@ -23,7 +23,7 @@ signUpButton.onclick = async (e) => {
         },
     });
     if(response.status === 200) {
-        location.assign('./signIn.html');
+        location.assign('signIn.html');
     } else if(response.status === 409){
         signUpValidationError.style.opacity = 0;
         signUpError.style.opacity = 1;
