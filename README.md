@@ -4,7 +4,7 @@
 * [Корчагин Георгий](https://github.com/GeorgiyKkk)
 
 # Сервисы для работы
-* [Miro](https://miro.com/app/board/uXjVPPzYRnE=/) 
+* [Miro](https://miro.com/app/board/uXjVPPzYRnE=/?share_link_id=6084268424) 
 * [Trello](https://trello.com/b/EEooHNxa/alcomanager)
 
 # Видеообзор приложения
