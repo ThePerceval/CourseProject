@@ -29,13 +29,7 @@ public class PartyController {
     public ResponseEntity getAllParties(@RequestParam Long id) {
         User user = userService.find(id);
         List<PartyDTO> parties = new ArrayList<>();
-
         parties = user.getParties().stream().map(partyMapper::convertToDto).collect(Collectors.toList());
-
-//        modelMapper.map(parties, PartyDTO.class);
-//        for (Party party : user.getParties()) {
-//            parties.add(modelMapper.map(party, PartyDTO.class));
-//        }
         return new ResponseEntity(parties, HttpStatus.OK);
     }
 
