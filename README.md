@@ -22,3 +22,13 @@
 * [Схема БД](https://github.com/ThePerceval/CourseProject/blob/master/Documentation/DB.png)
 * [Swagger](https://github.com/ThePerceval/CourseProject/blob/master/Documentation/SwaggerUI.pdf)
 * [Приложение](http://62.33.185.12:8080)
+
+# Данные для входа
+
+* Администратор
+* login - admin
+* password - admin
+
+* Обычный пользователь
+* login - user
+* password - user
