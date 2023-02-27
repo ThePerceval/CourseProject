@@ -3,6 +3,10 @@
 * [Савельев Денис](https://github.com/Dasdassand)
 * [Корчагин Георгий](https://github.com/GeorgiyKkk)
 
+# Описание приложения 
+
+/
+
 # Сервисы для работы
 * [Miro](https://miro.com/app/board/uXjVPPzYRnE=/?share_link_id=6084268424) 
 * [Trello](https://trello.com/b/EEooHNxa/alcomanager)
@@ -26,9 +30,13 @@
 # Данные для входа
 
 * Администратор
-* login - admin
-* password - admin
+
+  login - admin
+
+  password - admin
 
 * Обычный пользователь
-* login - user
-* password - user
+
+  login - user
+
+  password - user
