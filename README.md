@@ -9,6 +9,7 @@
 
 # Сервисы для работы
 * [Miro](https://miro.com/app/board/uXjVPPzYRnE=/?share_link_id=6084268424) 
+* [Miro client-server](https://miro.com/app/board/uXjVPjUlC1A=/?share_link_id=865339379308) 
 * [Trello](https://trello.com/b/EEooHNxa/alcomanager)
 
 # Видеообзор приложения
