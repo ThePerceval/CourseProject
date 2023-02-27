@@ -20,5 +20,15 @@
 * [Презентация](https://github.com/ThePerceval/CourseProject/blob/master/Documentation/Presentation.pdf)
 * [Метрики](https://metrika.yandex.ru/dashboard?group=day&period=month&id=91248958)
 * [Схема БД](https://github.com/ThePerceval/CourseProject/blob/master/Documentation/DB.png)
-* [Swagger](https://github.com/ThePerceval/CourseProject/blob/master/Documentation/SwaggerUI.pdf)
+* [Swagger](http://62.33.185.12:8080/swagger-ui/index.html)
 * [Приложение](http://62.33.185.12:8080)
+
+# Данные для входа
+
+* Администратор
+* login - admin
+* password - admin
+
+* Обычный пользователь
+* login - user
+* password - user
