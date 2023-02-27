@@ -21,7 +21,7 @@
 
 # Документация
 * [Техническое задание](https://github.com/ThePerceval/CourseProject/blob/master/Documentation/ТЗ.pdf)
-* [Курсовая работа](https://github.com/ThePerceval/CourseProject/blob/master/Documentation/Курсовой%20проект.pdf)
+* [Курсовая проект](https://github.com/ThePerceval/CourseProject/blob/master/Documentation/Курсовой%20проект.pdf)
 * [Презентация](https://github.com/ThePerceval/CourseProject/blob/master/Documentation/Presentation.pdf)
 * [Метрики](https://metrika.yandex.ru/dashboard?group=day&period=month&id=91248958)
 * [Схема БД](https://github.com/ThePerceval/CourseProject/blob/master/Documentation/DB.png)
